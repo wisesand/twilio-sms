@@ -1,14 +1,14 @@
 // dotenv configuration
 require("dotenv").config({ path: "./config/config.env" });
+// express setup
 const express = require("express");
+const app = express();
+// npm packages
 const chalk = require("chalk");
 
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const socketio = require("socket.io");
-const app = express();
-
-app.use(express.json());
 
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
@@ -20,14 +20,15 @@ app.engine("html", ejs.renderFile);
 // Public folder setup
 app.use(express.static(__dirname + "/public"));
 
-// Body parser middleware
+// app.use middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// Index route
+app.use(express.json());
+// Home routes setup
 app.get("/", (req, res) => {
   res.render("index");
 });
-// Catch form submit
+// post data from submit form
 app.post("/", (req, res) => {
   res.send(req.body);
   console.log(req.body);
