@@ -36,7 +36,7 @@ app.post("/", (req, res) => {
     .create({
       body: text,
       from: "+12563986239",
-      to: `+${number}`
+      to: `+91${number}`
     })
     .then((message) => console.log(message.sid))
     .done();
