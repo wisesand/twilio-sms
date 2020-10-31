@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
     .done();
   // Get data from response
   const data = {
-    number: `+${number}`,
+    number: `+91${number}`,
     error
   };
   // Emit to the client
