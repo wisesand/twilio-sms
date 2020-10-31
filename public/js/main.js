@@ -20,7 +20,7 @@ const getTimeSchedule = ({ time, number, text }) => {
   if (timeOut) clearTimeout(timeOut);
   timeOut = setTimeout(() => {
     fetchServer({ number, text });
-  }, time * 60 * 10);
+  }, time * 60 * 1000);
 };
 
 const fetchServer = ({ number, text }) => {
